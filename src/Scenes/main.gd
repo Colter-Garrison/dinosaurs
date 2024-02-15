@@ -1,19 +1,21 @@
 extends Node
 
-#Preload obstacles
+# Preload obstacles
 var stump_scene = preload("res://src/Scenes/stump.tscn")
 var rock_scene = preload("res://src/Scenes/rock.tscn")
 var barrel_scene = preload("res://src/Scenes/barrel.tscn")
 var bird_scene = preload("res://src/Scenes/bird.tscn")
-var obstacle_types := [stump_scene, rock_scene, barrel_scene]
+var vine_scene = preload("res://src/Scenes/vine.tscn")
+var obstacle_types := [stump_scene, rock_scene, barrel_scene, vine_scene]
 var obstacles : Array
 var bird_heights := [200, 390]
+var vine_height := 0
 
-#Game variables
+# Game variables
 const DINO_START_POS := Vector2i(150, 485)
 const CAM_START_POS := Vector2i(576, 324)
 var difficulty
-const MAX_DIFFICULTY : int = 2
+const MAX_DIFFICULTY : int = 10
 var score : int
 const SCORE_MODIFIER : int = 10
 var high_score : int
@@ -34,30 +36,31 @@ func _ready() -> void:
 	new_game()
 
 func new_game():
-#Reset variables
+# Reset variables
 	score = 0
 	show_score()
 	game_running = false
 	get_tree().paused = false
 	difficulty = 0
-#delete all obstacles
+# Delete all obstacles
 	for obs in obstacles:
 		obs.queue_free()
 	obstacles.clear()
-#Reset the nodes
+# Reset the nodes
 	$LokiDinosaur.position = DINO_START_POS
 	$LokiDinosaur.velocity = Vector2i(0, 0)
 	$Camera2D.position = CAM_START_POS
 	$Ground.position = Vector2i(0, 0)
-#Reset HUD and game over screen 
+# Reset HUD and game over screen 
 	$HUD.get_node("StartLabel").show()
 	$GameOver.hide()
 	$ThemeMusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print("difficulty: ", difficulty)
 	if game_running:
-		speed = START_SPEED + score / SPEED_MODIFIER
+		speed = min(START_SPEED + score / SPEED_MODIFIER, MAX_SPEED)
 		if speed > MAX_SPEED:
 			speed = MAX_SPEED
 		adjust_difficulty()
@@ -66,13 +69,13 @@ func _process(delta: float) -> void:
 	# Move dino and camera
 		$LokiDinosaur.position.x += speed
 		$Camera2D.position.x += speed
-	#Update score
+	# Update score
 		score += speed
 		show_score()
-	#Update ground position
+	# Update ground position
 		if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x += screen_size.x
-		#Remove obstacles that have gone off screen
+		# Remove obstacles that have gone off screen
 		for obs in obstacles:
 			if obs.position.x < ($Camera2D.position.x - screen_size.x):
 				remove_obs(obs)
@@ -82,27 +85,31 @@ func _process(delta: float) -> void:
 			$HUD.get_node("StartLabel").hide()
 
 func generate_obstacles():
-	#Generate ground obstacles
+	# Generate ground obstacles
 	if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):
 		var obs_type = obstacle_types[randi() % obstacle_types.size()]
 		var obs
-		var max_obs = difficulty + 1
+		var effective_difficulty = min(difficulty, 3)
+		var max_obs = effective_difficulty + 1
 		for i in range(randi() % max_obs + 1):
 			obs = obs_type.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
 			var obs_x : int = screen_size.x + score + 100 + (i * 100)
-			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) + 5
+			var obs_y : int
+			if obs_type == vine_scene:
+				obs_y = vine_height
+			else:
+				obs_y = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) + 5
 			last_obs = obs
 			add_obs(obs, obs_x, obs_y)
-		#Additionaly random chance to spawn a bird
-		if difficulty == MAX_DIFFICULTY:
-			if (randi() % 2) == 0:
-				#Generate bird obstacles
-				obs = bird_scene.instantiate()
-				var obs_x : int = screen_size.x + score + 100
-				var obs_y : int = bird_heights[randi() % bird_heights.size()]
-				add_obs(obs, obs_x, obs_y)
+		# Additionaly random chance to spawn a bird
+		if difficulty >= 2 and (randi() % 2) == 0:
+			# Generate bird obstacles
+			obs = bird_scene.instantiate()
+			var obs_x : int = screen_size.x + score + 100
+			var obs_y : int = bird_heights[randi() % bird_heights.size()]
+			add_obs(obs, obs_x, obs_y)
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)

@@ -1,11 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7atvk04nyysm"]
 
-[ext_resource type="Texture2D" uid="uid://binyicyk1ksv1" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Stones/5.png" id="1_e0dtu"]
+[ext_resource type="Texture2D" uid="uid://binyicyk1ksv1" path="res://assets/Sprites/Objects/Stones/5.png" id="1_e0dtu"]
 
 [node name="Rock" type="Area2D"]
 position = Vector2(850, 419)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_e0dtu")
 

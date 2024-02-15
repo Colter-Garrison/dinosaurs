@@ -13,7 +13,8 @@ func _physics_process(delta: float) -> void:
 			$RunCollision.disabled = false
 			# Jump logic
 			if Input.is_action_just_pressed("jump"):
-				velocity.y = JUMP_SPEED  # Apply the jump speed to the character's vertical velocity
+				# Apply the jump speed to the character's vertical velocity
+				velocity.y = JUMP_SPEED
 				$JumpSound.play()
 			elif Input.is_action_pressed("duck"):
 				$AnimatedSprite2D.play("duck")
@@ -22,7 +23,8 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.play("run")
 	else:
 		if is_jump_interrupted:
-			velocity.y = 0  # Interrupt the jump by stopping the upward movement
+			# Interrupt the jump by stopping the upward movement
+			velocity.y = 0
 			$AnimatedSprite2D.play("jump")
 
 	move_and_slide()

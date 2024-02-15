@@ -1,11 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjqrdpfsrpuoj"]
 
-[ext_resource type="Texture2D" uid="uid://ci0odpmim0x4g" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Boxes/3.png" id="1_y8hpu"]
+[ext_resource type="Texture2D" uid="uid://ci0odpmim0x4g" path="res://assets/Sprites/Objects/Boxes/3.png" id="1_y8hpu"]
 
 [node name="Barrel" type="Area2D"]
 position = Vector2(646, 555)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_y8hpu")
 

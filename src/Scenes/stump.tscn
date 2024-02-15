@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cavu6oykb58cs"]
 
-[ext_resource type="Texture2D" uid="uid://pmtu4eque1dt" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Ridges/2.png" id="1_7mtxw"]
+[ext_resource type="Texture2D" uid="uid://pmtu4eque1dt" path="res://assets/Sprites/Objects/Ridges/2.png" id="1_7mtxw"]
 
 [node name="Stump" type="Area2D"]
 position = Vector2(652, 560)

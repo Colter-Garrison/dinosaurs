@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=3 uid="uid://cci7mw7p4duuk"]
 
 [ext_resource type="Script" path="res://src/Actors/loki_dinosaur.gd" id="1_iaosk"]
-[ext_resource type="Texture2D" uid="uid://ddn1cfuydw615" path="res://assets/Dinosaurs/male/loki/base/dash.png" id="1_y2fyb"]
-[ext_resource type="Texture2D" uid="uid://bec00qowgw545" path="res://assets/Dinosaurs/male/loki/base/hurt.png" id="2_h1k2i"]
-[ext_resource type="Texture2D" uid="uid://b6xt1scobd06v" path="res://assets/Dinosaurs/male/loki/base/idle.png" id="2_l5slg"]
-[ext_resource type="Texture2D" uid="uid://c7qpunhnlt1gt" path="res://assets/Dinosaurs/male/loki/base/jump.png" id="3_nk6b8"]
-[ext_resource type="Texture2D" uid="uid://gghpoutj4ha2" path="res://assets/Dinosaurs/male/loki/base/move.png" id="4_ni2qp"]
-[ext_resource type="AudioStream" uid="uid://cvkihy6jhkfsq" path="res://assets/Minifantasy_Dungeon_SFX/22_orc_jump_1.wav" id="6_4762l"]
+[ext_resource type="Texture2D" uid="uid://ddn1cfuydw615" path="res://assets/Sprites/Dinosaurs/loki/base/dash.png" id="1_y2fyb"]
+[ext_resource type="Texture2D" uid="uid://bec00qowgw545" path="res://assets/Sprites/Dinosaurs/loki/base/hurt.png" id="2_h1k2i"]
+[ext_resource type="Texture2D" uid="uid://b6xt1scobd06v" path="res://assets/Sprites/Dinosaurs/loki/base/idle.png" id="2_l5slg"]
+[ext_resource type="Texture2D" uid="uid://c7qpunhnlt1gt" path="res://assets/Sprites/Dinosaurs/loki/base/jump.png" id="3_nk6b8"]
+[ext_resource type="Texture2D" uid="uid://gghpoutj4ha2" path="res://assets/Sprites/Dinosaurs/loki/base/move.png" id="4_ni2qp"]
+[ext_resource type="AudioStream" uid="uid://cvkihy6jhkfsq" path="res://assets/Sounds/SFX/22_orc_jump_1.wav" id="6_4762l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_annua"]
 atlas = ExtResource("1_y2fyb")
@@ -191,10 +191,8 @@ script = ExtResource("1_iaosk")
 texture_filter = 1
 scale = Vector2(0.987027, 0.980533)
 sprite_frames = SubResource("SpriteFrames_gay2o")
-animation = &"duck"
+animation = &"run"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.961797
 
 [node name="RunCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0.158498, 1)

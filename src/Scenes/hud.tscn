@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3tyb436w7xju"]
 
-[ext_resource type="FontFile" uid="uid://docebkn8rifls" path="res://assets/BitPotion Full/BitPotion.ttf" id="1_d86u2"]
+[ext_resource type="FontFile" uid="uid://docebkn8rifls" path="res://assets/Text/BitPotion.ttf" id="1_d86u2"]
 
 [node name="HUD" type="CanvasLayer"]
 
