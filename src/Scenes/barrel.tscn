@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjqrdpfsrpuoj"]
+
+[ext_resource type="Texture2D" uid="uid://ci0odpmim0x4g" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Boxes/3.png" id="1_y8hpu"]
+
+[node name="Barrel" type="Area2D"]
+position = Vector2(646, 555)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_y8hpu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(13, 12.75, -12.25, 12.5, -12.25, 8.25, -12, 5.75, -13, 0.5, -13, -4, -12.25, -7.75, -11.5, -12.75, 12.25, -12.5, 13.25, -9, 13, -4.5, 12.5, 9, 13.25, 10)

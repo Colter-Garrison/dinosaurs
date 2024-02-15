@@ -1,0 +1,208 @@
+[gd_scene load_steps=31 format=3 uid="uid://cci7mw7p4duuk"]
+
+[ext_resource type="Script" path="res://src/Actors/loki_dinosaur.gd" id="1_iaosk"]
+[ext_resource type="Texture2D" uid="uid://ddn1cfuydw615" path="res://assets/Dinosaurs/male/loki/base/dash.png" id="1_y2fyb"]
+[ext_resource type="Texture2D" uid="uid://bec00qowgw545" path="res://assets/Dinosaurs/male/loki/base/hurt.png" id="2_h1k2i"]
+[ext_resource type="Texture2D" uid="uid://b6xt1scobd06v" path="res://assets/Dinosaurs/male/loki/base/idle.png" id="2_l5slg"]
+[ext_resource type="Texture2D" uid="uid://c7qpunhnlt1gt" path="res://assets/Dinosaurs/male/loki/base/jump.png" id="3_nk6b8"]
+[ext_resource type="Texture2D" uid="uid://gghpoutj4ha2" path="res://assets/Dinosaurs/male/loki/base/move.png" id="4_ni2qp"]
+[ext_resource type="AudioStream" uid="uid://cvkihy6jhkfsq" path="res://assets/Minifantasy_Dungeon_SFX/22_orc_jump_1.wav" id="6_4762l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_annua"]
+atlas = ExtResource("1_y2fyb")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h63dq"]
+atlas = ExtResource("1_y2fyb")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64lqr"]
+atlas = ExtResource("1_y2fyb")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umvo1"]
+atlas = ExtResource("1_y2fyb")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqc6u"]
+atlas = ExtResource("1_y2fyb")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crgvt"]
+atlas = ExtResource("1_y2fyb")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0b0u"]
+atlas = ExtResource("2_h1k2i")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to8lx"]
+atlas = ExtResource("2_h1k2i")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1xbe"]
+atlas = ExtResource("2_h1k2i")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_injbc"]
+atlas = ExtResource("2_h1k2i")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxs41"]
+atlas = ExtResource("2_l5slg")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7dm4"]
+atlas = ExtResource("2_l5slg")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1l6m"]
+atlas = ExtResource("2_l5slg")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vavuk"]
+atlas = ExtResource("3_nk6b8")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spfht"]
+atlas = ExtResource("4_ni2qp")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtu6g"]
+atlas = ExtResource("4_ni2qp")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eicec"]
+atlas = ExtResource("4_ni2qp")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgi6"]
+atlas = ExtResource("4_ni2qp")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vylhm"]
+atlas = ExtResource("4_ni2qp")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l70uv"]
+atlas = ExtResource("4_ni2qp")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gay2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_annua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h63dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64lqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umvo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqc6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crgvt")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0b0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to8lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1xbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_injbc")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxs41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7dm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1l6m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vavuk")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spfht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtu6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eicec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukgi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vylhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l70uv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcxvp"]
+size = Vector2(7.683, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6m62"]
+size = Vector2(8.683, 13.6754)
+
+[node name="LokiDinosaur" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(4.34428, 4.34428)
+script = ExtResource("1_iaosk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.987027, 0.980533)
+sprite_frames = SubResource("SpriteFrames_gay2o")
+animation = &"duck"
+autoplay = "idle"
+frame = 4
+frame_progress = 0.961797
+
+[node name="RunCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.158498, 1)
+shape = SubResource("RectangleShape2D_rcxvp")
+
+[node name="DuckCollision" type="CollisionShape2D" parent="."]
+position = Vector2(1.183, 2.00378)
+shape = SubResource("RectangleShape2D_l6m62")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4762l")

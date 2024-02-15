@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7atvk04nyysm"]
+
+[ext_resource type="Texture2D" uid="uid://binyicyk1ksv1" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Stones/5.png" id="1_e0dtu"]
+
+[node name="Rock" type="Area2D"]
+position = Vector2(850, 419)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_e0dtu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(13.25, -10, 15.5, 15.5, -15, 15, -14.75, 8.75, -12.5, 1.75, -9.75, -2.5, -7, -11.25, -3.25, -14.25, 7.25, -15.25)
