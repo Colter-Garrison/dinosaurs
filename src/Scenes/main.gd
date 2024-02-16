@@ -144,3 +144,5 @@ func game_over():
 	game_running = false
 	$GameOver.show()
 	$ThemeMusic.stop()
+
+# 1152 x 648
