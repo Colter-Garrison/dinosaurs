@@ -58,7 +58,6 @@ func new_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print("difficulty: ", difficulty)
 	if game_running:
 		speed = min(START_SPEED + score / SPEED_MODIFIER, MAX_SPEED)
 		if speed > MAX_SPEED:
